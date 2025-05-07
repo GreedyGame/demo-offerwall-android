@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Pubscale Offerwall Demo</string>
+    <string name="title_offerwall">
+    <![CDATA[
+        Experience the <font color="#1CBB4C">Offerwall</font> in Action
+    ]]>
+</string>
 </resources>

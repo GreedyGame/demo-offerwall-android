@@ -39,11 +39,13 @@
             android:layout_weight="1" />
 
         <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvBalance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/clashdisplay_semibold"
-            android:text="24,000"
-            android:textColor="#F26D00" />
+            android:text=""
+            android:textColor="#F26D00"
+            android:textSize="18sp" />
 
     </LinearLayout>
 
@@ -55,7 +57,7 @@
         android:fontFamily="@font/inter_tight_medium"
         android:text="Experience the Offerwall in Action"
         android:textColor="#001D21"
-        android:textSize="36sp"
+        android:textSize="38sp"
         app:layout_constraintTop_toBottomOf="@id/imgLogo" />
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -66,7 +68,7 @@
         android:fontFamily="@font/inter_tight_medium"
         android:text="Test the integration flow, simulate offer completions and verify rewards in real time."
         android:textColor="#aa001D21"
-        android:textSize="16sp"
+        android:textSize="18sp"
         app:layout_constraintTop_toBottomOf="@id/tvTitle" />
 
     <Button

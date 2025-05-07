@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "77512890389",
+    "project_id": "ps-ow-demos",
+    "storage_bucket": "ps-ow-demos.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:77512890389:android:58a3e5ee343ab4e79bd61c",
+        "android_client_info": {
+          "package_name": "com.pubscale.demo.android.yt"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-OEOL92V1Cz91PA4Zo6wq9-m5qMZSjzo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
