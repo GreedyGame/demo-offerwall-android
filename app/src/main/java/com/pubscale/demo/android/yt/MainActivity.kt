@@ -10,19 +10,20 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
-    private lateinit var user: User
-    private lateinit var wallet: Wallet
+    private val user: User by lazy { User(context = this@MainActivity) }
+    private val wallet: Wallet by lazy { Wallet(user = user) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        user = User(context = this@MainActivity)
-        wallet = Wallet(user = user)
+        setupUI()
+    }
+
+    private fun setupUI() {
         getWalletBalance()
         binding.tvTitle.text = HtmlCompat.fromHtml(
-            getString(R.string.title_offerwall),
-            HtmlCompat.FROM_HTML_MODE_LEGACY
+            getString(R.string.title_offerwall), HtmlCompat.FROM_HTML_MODE_LEGACY
         )
     }
 
