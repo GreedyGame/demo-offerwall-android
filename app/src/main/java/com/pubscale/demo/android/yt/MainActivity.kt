@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initOfferwall() {
-        val offerWallConfig = OfferWallConfig.Builder(this@MainActivity, "13680145")
+        val offerWallConfig = OfferWallConfig.Builder(this@MainActivity, "YOUR_PUBSCALE_APP_ID")
             .setUniqueId(user.getUserId())
             .build()
         OfferWall.init(offerWallConfig, object : OfferWallInitListener {
