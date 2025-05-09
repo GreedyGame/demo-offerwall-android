@@ -29,27 +29,7 @@ class MainActivity : AppCompatActivity() {
         initOfferwall()
 
         binding.btnLaunch.setOnClickListener {
-            val offerWallListener = object : OfferWallListener {
-
-                override fun onOfferWallShowed() {
-                    Log.d("PSOfferwall", "Offer wall showed.")
-                }
-
-                override fun onOfferWallClosed() {
-                    Log.d("PSOfferwall", "Offer wall closed.")
-                }
-
-                override fun onRewardClaimed(reward: Reward) {
-                    Log.d("PSOfferwall", "Offer wall reward claimed.")
-                }
-
-                override fun onFailed(message: String) {
-                    Log.d("PSOfferwall", "onFailed: $message")
-                }
-            }
-
-            OfferWall.launch(this@MainActivity, offerWallListener)
-
+            launchOfferwall()
         }
     }
 
@@ -66,6 +46,29 @@ class MainActivity : AppCompatActivity() {
                 Log.d("PSOfferwall", "Offer wall init failed: ${error.message}")
             }
         })
+    }
+
+    private fun launchOfferwall() {
+        val offerWallListener = object : OfferWallListener {
+
+            override fun onOfferWallShowed() {
+                Log.d("PSOfferwall", "Offer wall showed.")
+            }
+
+            override fun onOfferWallClosed() {
+                Log.d("PSOfferwall", "Offer wall closed.")
+            }
+
+            override fun onRewardClaimed(reward: Reward) {
+                Log.d("PSOfferwall", "Offer wall reward claimed.")
+            }
+
+            override fun onFailed(message: String) {
+                Log.d("PSOfferwall", "onFailed: $message")
+            }
+        }
+
+        OfferWall.launch(this@MainActivity, offerWallListener)
     }
 
     private fun setupUI() {
