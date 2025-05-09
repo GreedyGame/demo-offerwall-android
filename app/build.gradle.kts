@@ -52,4 +52,6 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     implementation(platform(libs.firebase.bom))
+
+    implementation("com.pubscale.sdkone:offerwall:1.0.10")
 }
