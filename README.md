@@ -23,9 +23,9 @@ https://pubscale.gitbook.io/offerwall-sdk/basic-integration/android-integration
    ```bash
    git clone https://github.com/GreedyGame/demo-offerwall-android.git
 2. **Open in Android Studio**
-3. **Update the SDK Key**
-   Get the offerwall app ID from the [dashboard](https://dashboard.pubscale.com) by creating an offerwall placement.
-4. **Run the App**
+3. **Update the SDK Key** <br />
+   Get the offerwall app ID from the [dashboard](https://dashboard.pubscale.com) by creating an offerwall placement and replace the "YOUR_PUBSCALE_APP_ID" in MainActivity.kt.
+5. **Run the App** <br />
    Run the app and experience the PubScale offerwall.
 
 ---
