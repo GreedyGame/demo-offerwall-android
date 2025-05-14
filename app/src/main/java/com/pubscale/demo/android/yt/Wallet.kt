@@ -1,38 +1,34 @@
 package com.pubscale.demo.android.yt
 
 import com.google.firebase.Firebase
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
-import com.google.firebase.database.database
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.firestore
 
 class Wallet(private val user: User) {
 
-    private val db: FirebaseDatabase = Firebase.database
-    private val dbRef: DatabaseReference = db.getReference("app_demo_yt_android")
+    private val db: FirebaseFirestore = Firebase.firestore
 
     fun getBalance(listener: (Double) -> Unit) {
-        dbRef.child("users").child(user.getUserId()).child("balance")
-            .addValueEventListener(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    val balance = snapshot.getValue(Double::class.java) ?: 0.0
-                    if (balance == 0.0) {
-                        setInitialBalance()
-                        listener.invoke(2400.0)
-                    } else {
-                        listener.invoke(balance)
-                    }
+        db.collection("apps").document("my_app").collection("users")
+            .document(user.getUserId())
+            .addSnapshotListener { snapshot, error ->
+                if (error != null) {
+                    return@addSnapshotListener
                 }
-
-                override fun onCancelled(error: DatabaseError) {
-                    listener.invoke(2400.0)
+                if (snapshot != null && snapshot.exists()) {
+                    listener.invoke(snapshot.getDouble("balance") ?: 0.0)
+                } else {
+                    setInitialBalance()
+                    listener.invoke(0.0)
                 }
-            })
+            }
     }
 
     private fun setInitialBalance() {
-        dbRef.child("users").child(user.getUserId()).child("balance").setValue(2400)
+        db.collection("apps").document("my_app").collection("users").document(user.getUserId()).set(
+            mapOf(
+                "balance" to 0.0
+            )
+        )
     }
 }
